@@ -309,7 +309,7 @@ public class OnlineFoodSearchFragment extends Fragment {
 	                  
                 }else{
 
-                    Toast.makeText(getActivity(), "No hay elementos", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.no_elements), Toast.LENGTH_LONG).show();
                     mContentLoaded = !mContentLoaded;
 	                showContentOrLoadingIndicator(mContentLoaded);
                 }

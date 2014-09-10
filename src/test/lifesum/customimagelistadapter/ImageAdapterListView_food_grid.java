@@ -288,7 +288,7 @@ public class ImageAdapterListView_food_grid extends BaseAdapter {
 			        	
 			        	if (otros.size() == 0){
 			        		      
-			        		category.setText("No hay elementos.");
+			        		category.setText(actividad.getResources().getString(R.string.no_elements));
 //			        		sku.setText("");
 //			        		hidden.setText("");
 			        		

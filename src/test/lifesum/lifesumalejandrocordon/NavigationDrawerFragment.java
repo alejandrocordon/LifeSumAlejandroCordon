@@ -280,7 +280,11 @@ public class NavigationDrawerFragment extends Fragment {
 			showGlobalContextActionBar();
 		}
 		super.onCreateOptionsMenu(menu, inflater);
+		
+		
 	}
+	
+	
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {

@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:text="¡Busca alimentos con base en marcas, comidas y restaurantes en nuestra creciente base de datos!"
+                android:text="@string/online_search_text"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/GrisFondo"
                 android:textSize="18sp"

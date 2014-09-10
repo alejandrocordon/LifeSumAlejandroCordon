@@ -145,22 +145,24 @@ public final class R {
         public static final int main=0x7f080002;
     }
     public static final class string {
-        public static final int action_example=0x7f06000f;
-        public static final int action_settings=0x7f060002;
+        public static final int action_example=0x7f06000e;
+        public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int auth1=0x7f060004;
-        public static final int auth2=0x7f060005;
-        public static final int auth3=0x7f060006;
-        public static final int auth4=0x7f060007;
-        public static final int auth5=0x7f060008;
-        public static final int hello_world=0x7f060001;
-        public static final int navigation_drawer_close=0x7f06000e;
-        public static final int navigation_drawer_open=0x7f06000d;
-        public static final int title_activity_food_list=0x7f060009;
-        public static final int title_section1=0x7f06000a;
-        public static final int title_section2=0x7f06000b;
-        public static final int title_section3=0x7f06000c;
-        public static final int url=0x7f060003;
+        public static final int auth1=0x7f060003;
+        public static final int auth2=0x7f060004;
+        public static final int auth3=0x7f060005;
+        public static final int auth4=0x7f060006;
+        public static final int auth5=0x7f060007;
+        public static final int navigation_drawer_close=0x7f06000d;
+        public static final int navigation_drawer_open=0x7f06000c;
+        public static final int no_elements=0x7f060011;
+        public static final int online_search_text=0x7f06000f;
+        public static final int saved_search_text=0x7f060010;
+        public static final int title_activity_food_list=0x7f060008;
+        public static final int title_section1=0x7f060009;
+        public static final int title_section2=0x7f06000a;
+        public static final int title_section3=0x7f06000b;
+        public static final int url=0x7f060002;
     }
     public static final class style {
         /** 

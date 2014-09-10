@@ -18,7 +18,8 @@
             android:layout_gravity="center"
             android:layout_margin="1dp"
             android:background="@color/GrisFondo"
-            android:padding="2dp" >
+            android:padding="2dp"
+            android:visibility="gone" >
 
             <ImageView
                 android:id="@+id/imageViewSave"
@@ -59,8 +60,7 @@
             android:layout_height="match_parent"
             android:background="@color/GrisMedio"
             android:gravity="center|top"
-            android:orientation="vertical"
-            android:visibility="gone" >
+            android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/textView1"
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:text="¡Busca alimentos almacenadas en tu dispositivo!"
+                android:text="@string/saved_search_text"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/GrisFondo"
                 android:textSize="18sp"

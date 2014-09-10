@@ -270,7 +270,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 		
 		SQLiteDatabase db = this.getWritableDatabase();
 	    db.delete("Foods", "Id" + " = ?",
-	            new String[] { String.valueOf(food.getId()) });
+	            new String[] { food.getId() });
 	    db.close();
 	    
 	    

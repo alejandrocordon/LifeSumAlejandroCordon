@@ -1,23 +1,12 @@
 package test.lifesum.fragments;
 
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import test.lifesum.customimagelistadapter.ImageAdapterListView_food_grid;
+import test.lifesum.customimagelistadapter.ImageAdapterListView_food_grid_saved;
 import test.lifesum.db.MyDatabaseHelper;
 import test.lifesum.lifesumalejandrocordon.R;
-import test.lifesum.lifesumalejandrocordon.R.id;
-import test.lifesum.lifesumalejandrocordon.R.layout;
 import test.lifesum.parcelableobjects.ParcelableFood;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -26,13 +15,13 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -192,32 +181,58 @@ public class SavedFoodSearchFragment extends Fragment {
 		}
 
 		@Override
-		protected void onPostExecute(final ArrayList<ParcelableFood> food ) {
+		protected void onPostExecute(final ArrayList<ParcelableFood> foods ) {
 
-			if (food!=null) {
+			if (foods!=null) {
 
-                if (food.size()>0){
+                if (foods.size()>0){
 
 
-                    ImageAdapterListView_food_grid adapterscan_grid = new ImageAdapterListView_food_grid(getActivity().getApplicationContext(),getActivity(),food);
+                    final ImageAdapterListView_food_grid_saved adapterscan_grid = new ImageAdapterListView_food_grid_saved(getActivity().getApplicationContext(),getActivity(),foods);
 
 //        		    View viewer = mSectionsPagerAdapter.getItem(1).getView();
 
 	        		    grid.setAdapter(adapterscan_grid);
 //	        		    adapter.notifyDataSetChanged().
 
-	                  grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-	
-	                      @Override
-	                      public void onItemClick(AdapterView<?> arg0, View arg1,
-	                                              int arg2, long arg3) {
-	                          // TODO Auto-generated method stub
-	
-	
-	                      }
-	
-	                  });
+//	        		    grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//	
+//	                      @Override
+//	                      public void onItemClick(AdapterView<?> arg0, View arg1,
+//	                                              int arg2, long arg3) {
+//	                          // TODO Auto-generated method stub
+//
+////	                    	  grid.getAdapter().getItem(arg2);
+//	                    	  arg1.setVisibility(View.GONE);
+////	                    	  grid.removeViewAt(arg2);
+//	
+//	                      }
+//	
+//	                  });
                     
+	        		    grid.setOnItemClickListener(new OnItemClickListener() {
+
+							@Override
+							public void onItemClick(AdapterView<?> arg0,
+									View arg1, int arg2, long arg3) {
+								// TODO Auto-generated method stub
+//								arg1.setVisibility(View.GONE);
+								
+////								arg0.removeViewAt(arg2);
+//								adapterscan_grid.not
+//								grid.removeViewAt(arg2);
+//								arg0.notifyAll();
+								
+								adapterscan_grid.removeItem(arg2);
+//								arg1.setVisibility(View.GONE);
+								
+								
+								MyDatabaseHelper dbHelper = new MyDatabaseHelper(getActivity().getApplicationContext());  
+							    SQLiteDatabase database = dbHelper.getWritableDatabase();  
+							    dbHelper.deleteFood(foods.get(arg2));
+							    
+							}
+						});
                     
 	                  
 //	                  grid.setVisibility(View.VISIBLE);
@@ -229,7 +244,7 @@ public class SavedFoodSearchFragment extends Fragment {
 	                  
                 }else{
 
-                    Toast.makeText(getActivity(), "No hay elementos", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.no_elements), Toast.LENGTH_LONG).show();
                     mContentLoaded = !mContentLoaded;
 	                showContentOrLoadingIndicator(mContentLoaded);
                 }
