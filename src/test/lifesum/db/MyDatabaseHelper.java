@@ -1,8 +1,9 @@
-package test.lifesum.lifesumalejandrocordon;
+package test.lifesum.db;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import test.lifesum.parcelableobjects.ParcelableFood;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

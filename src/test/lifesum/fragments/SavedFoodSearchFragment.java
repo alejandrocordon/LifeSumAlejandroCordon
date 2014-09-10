@@ -1,4 +1,4 @@
-package test.lifesum.lifesumalejandrocordon;
+package test.lifesum.fragments;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,6 +13,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import test.lifesum.customimagelistadapter.ImageAdapterListView_food_grid;
+import test.lifesum.db.MyDatabaseHelper;
+import test.lifesum.lifesumalejandrocordon.R;
+import test.lifesum.lifesumalejandrocordon.R.id;
+import test.lifesum.lifesumalejandrocordon.R.layout;
+import test.lifesum.parcelableobjects.ParcelableFood;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.Fragment;
@@ -193,7 +199,7 @@ public class SavedFoodSearchFragment extends Fragment {
                 if (food.size()>0){
 
 
-                    ImageAdapterListView_otros_grid adapterscan_grid = new ImageAdapterListView_otros_grid(getActivity().getApplicationContext(),getActivity(),food);
+                    ImageAdapterListView_food_grid adapterscan_grid = new ImageAdapterListView_food_grid(getActivity().getApplicationContext(),getActivity(),food);
 
 //        		    View viewer = mSectionsPagerAdapter.getItem(1).getView();
 

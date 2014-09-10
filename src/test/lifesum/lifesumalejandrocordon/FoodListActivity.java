@@ -1,5 +1,8 @@
 package test.lifesum.lifesumalejandrocordon;
 
+import test.lifesum.fragments.IndexFragment;
+import test.lifesum.fragments.OnlineFoodSearchFragment;
+import test.lifesum.fragments.SavedFoodSearchFragment;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;

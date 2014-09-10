@@ -1,4 +1,4 @@
-package test.lifesum.lifesumalejandrocordon;
+package test.lifesum.imagecache;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,6 +14,8 @@ import java.util.WeakHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import test.lifesum.lifesumalejandrocordon.R;
+import test.lifesum.lifesumalejandrocordon.R.drawable;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;

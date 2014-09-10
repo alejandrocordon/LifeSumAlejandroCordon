@@ -1,4 +1,4 @@
-package test.lifesum.lifesumalejandrocordon;
+package test.lifesum.parcelableobjects;
 
 
 import org.json.JSONException;

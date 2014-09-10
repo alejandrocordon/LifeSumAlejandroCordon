@@ -1,7 +1,14 @@
-package test.lifesum.lifesumalejandrocordon;
+package test.lifesum.customimagelistadapter;
 
 import java.util.ArrayList;
 
+import test.lifesum.db.MyDatabaseHelper;
+import test.lifesum.imagecache.ImageLoader;
+import test.lifesum.lifesumalejandrocordon.R;
+import test.lifesum.lifesumalejandrocordon.R.drawable;
+import test.lifesum.lifesumalejandrocordon.R.id;
+import test.lifesum.lifesumalejandrocordon.R.layout;
+import test.lifesum.parcelableobjects.ParcelableFood;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -20,7 +27,7 @@ import android.widget.RelativeLayout;
 import android.widget.TableLayout.LayoutParams;
 import android.widget.TextView;
 
-public class ImageAdapterListView_otros_grid extends BaseAdapter {
+public class ImageAdapterListView_food_grid extends BaseAdapter {
     private Context mContext;
 
     private String TAG = getClass().getSimpleName();
@@ -39,7 +46,7 @@ public class ImageAdapterListView_otros_grid extends BaseAdapter {
     private Dialog mDialog;
 
 
-    public ImageAdapterListView_otros_grid(Context c, Activity a, ArrayList<ParcelableFood> listaotros) {
+    public ImageAdapterListView_food_grid(Context c, Activity a, ArrayList<ParcelableFood> listaotros) {
     	//Log.d(this.getClass().getSimpleName(),"Creador ");
     	mContext = c;
     	

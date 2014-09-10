@@ -1,4 +1,4 @@
-package test.lifesum.lifesumalejandrocordon;
+package test.lifesum.imagecache;
 
 import java.util.Collections;
 import java.util.Iterator;

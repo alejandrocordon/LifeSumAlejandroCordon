@@ -1,4 +1,4 @@
-package test.lifesum.lifesumalejandrocordon;
+package test.lifesum.imagecache;
 
 import java.io.InputStream;
 import java.io.OutputStream;

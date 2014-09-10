@@ -1,7 +1,8 @@
-package test.lifesum.lifesumalejandrocordon;
+package test.lifesum.fragments;
 
 import java.util.List;
 
+import test.lifesum.lifesumalejandrocordon.R;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
