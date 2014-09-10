@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+     <color name="Blanco">#ffffff</color>
+     <color name="Negro">#000000</color>
+	 <color name="Rosa">#A70084</color>
+	 <color name="RosaClaro">#C578BF</color>
+	 <color name="GrisOscuro">#383838</color>
+	 <color name="GrisMedio">#666666</color>
+	 <color name="GrisClaro">#999999</color>
+	 <color name="GrisFondo">#f5f5f5</color>
+	 <color name="rojo">#a10018</color>
+     <color name="verde">#88be3c</color>
+  
+     <color name="menu_gris_ppal">#626262</color>
+     <color name="menu_gris_categoria">#999999</color>
+     <color name="menu_gris_subcategoria">#f5f5f5</color>
+
+     <color name="transparent">#0000</color>
+
+</resources>

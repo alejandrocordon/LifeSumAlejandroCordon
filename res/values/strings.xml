@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LifeSumAlejandroCordon</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="url">https://api.lifesum.com/v1/search/query</string>
+    <string name="auth1">6764086:1bbe7ae40fe214c158212559f7c038abc0ced409a66fe79043945a2ca4fd99ed</string>
+    <string name="auth2">6764086:1bbe7ae40fe214c158212559f7c038abc0ced409a</string>
+    <string name="auth3">66fe79043945a2ca4fd99ed</string>
+    <string name="auth4">a794ecd348a3f71894426c65c37fea35da89a295bcbad687ca68a96fbfc7d371</string>
+    <string name="auth5">5791569:a794ecd348a3f71894426c65c37fea35da89a295bcbad687ca68a96fbfc7d371</string>
+    <string name="title_activity_food_list">FoodListActivity</string>
+    <string name="title_section1">LifeSum info</string>
+    <string name="title_section2">Online Food Search</string>
+    <string name="title_section3">Saved Food Search</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Contact</string>
+
+</resources>

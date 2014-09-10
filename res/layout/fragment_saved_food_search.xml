@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="test.lifesum.lifesumalejandrocordon.OnlineFoodSearch" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:background="@color/GrisMedio"
+        android:nextFocusForward="@color/GrisFondo"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="1dp"
+            android:background="@color/GrisFondo"
+            android:padding="2dp" >
+
+            <ImageView
+                android:id="@+id/imageViewSave"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:src="@drawable/lifesumlogo_web_grey" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text=" search " />
+
+            <EditText
+                android:id="@+id/editTextSearch"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:ems="10"
+                android:textColorLink="@color/verde" />
+
+            <Button
+                android:id="@+id/buttonGo"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@color/verde"
+                android:text="Go"
+                android:textColor="@color/Blanco" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/GrisMedio"
+            android:gravity="center|top"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="¡Busca alimentos almacenadas en tu dispositivo!"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/GrisFondo"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="90dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_search" />
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutLoading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ProgressBar
+                    android:id="@+id/progressBarSearching"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loading..."
+                    android:textColor="@color/Blanco" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/GrisOscuro"
+            android:numColumns="1"
+            android:padding="1dp" >
+
+        </GridView>
+
+    </LinearLayout>
+
+</RelativeLayout>

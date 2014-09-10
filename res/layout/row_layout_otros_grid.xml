@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayoutPublisher"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:animationCache="true"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/verde"
+        android:paddingBottom="1dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/GrisOscuro"
+            android:paddingBottom="2dp"
+            android:paddingTop="1dp" >
+
+            <ImageView
+                android:id="@+id/ImageView01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/lifesumlogo_web_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:background="@color/GrisFondo"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="64dp"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textViewFecha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:lines="1"
+                        android:minLines="1"
+                        android:text="asdf"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/Negro"
+                        android:textSize="14dp"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/imageViewSave"
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_launcher" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="2"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/TextViewTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:maxLines="2"
+                        android:text="asdf"
+                        android:textColor="@color/GrisMedio"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewbrand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewcalories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textColor="@color/verde"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewFiber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/textViewfat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/TextViewHeadImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/textViewpcsingram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/textViewunsaturatedfat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="9sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewservingcategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/TextViewtypeofmeasurement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/TextViewprotein"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/TextViewdefaultserving"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/TextViewmlingram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/TextViewproductid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/TextViewsaturatedfat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/TextViewcategoryid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewverified"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewshowonlysametype"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewserving_version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewsugar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewmeasurementid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewcholesterol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewgramsperserving"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewshowmeasurement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewpotassium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewcategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewpcstext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/TextViewsodium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+
+                    <TextView
+                        android:id="@+id/textViewcarbohydrates"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:textSize="6sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/TextViewInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/TextViewMail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:lines="1"
+                        android:minLines="1"
+                        android:text="asdf"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/Negro"
+                        android:textSize="14dp"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/ImageView02"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_info" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
