@@ -450,63 +450,6 @@ public class ImageAdapterListView_food_grid extends BaseAdapter {
                                     		
                                     		
                                     		
-//                                    		 spin_provincias = (Spinner) view_dialog.findViewById(R.id.spinnerProvincias);
-//                                    		 adapter = new ArrayAdapter<ProvinciaParcelable>(getApplicationContext(), android.R.layout.simple_spinner_item, provincias);
-//
-//                                    		 
-//
-//                                    		 
-//                                    		 ArrayList<String>  provs =  new ArrayList<String>();
-////                                    		 ArrayList<String> provincias_visible = new ArrayList<String>();
-//                                    		 for (int i = 0; i < adapter.getCount(); i++) {
-//                                    			 provs.add(adapter.getItem(i).getNombre());
-//                                    		 }
-//                                    		 
-//                                    		 ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, provs);
-//
-//                                    		 
-////                                             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-////                                             spin_provincias.setAdapter(adapter);
-//
-//                                    		 spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//                                             spin_provincias.setAdapter(spinnerArrayAdapter);
-//                                             
-//                                             
-//
-//                                             try {
-//                                             	SharedPreferences settings = getSharedPreferences(getString(R.string.PREFS_FILE), MODE_PRIVATE);
-//                                                 //Lectura
-//                                                 settings.getString("seleccion_provincia","");
-//                                                 int pos_provincia = settings.getInt("seleccion_posicion_ultima_provincia",-100);
-//                                                 
-//                                                 if (pos_provincia!=-100) {
-//                                                 	spin_provincias.setSelection(pos_provincia, true);
-////                                                 	new getTiendasProvincia(spin_provincias.getSelectedItem().toString()).execute();
-//                                                 	new getTiendasProvincia(adapter.getItem(spin_provincias.getSelectedItemPosition())).execute();
-//                                    				}
-//                                    			} catch (Exception e) {
-//                                    				// TODO: handle exception
-//                                    				
-//                                    				  SharedPreferences settings = getSharedPreferences(getString(R.string.PREFS_FILE), MODE_PRIVATE);
-//                                    		            //Escritura
-//                                    		            SharedPreferences.Editor editor = settings.edit();
-//                                    		            editor.putInt("seleccion_posicion_ultima_provincia", 0);
-//                                    		            // Commit the edits!
-//                                    		            editor.commit();
-//                                    		            
-//                                    				spin_provincias.setSelection(0, true);
-//                                    				
-//                                    			}
-                                             
-                                    		
-//                                    		final EditText texto_entrada = (EditText) view_dialog.findViewById(R.id.editText_texto_Entrada); 
-                                    		
-//                                    		if (type.equals("texto")) {
-//                                    		}else if (type.equals("url")) {
-//                                    			texto_entrada.setText("http://www.");
-//                                    		}
-                                    		
-                                    		
 									  	
 								  	        final ImageView save = (ImageView) view_dialog.findViewById(R.id.imageViewSave); //id defined in camera.xml
 								  	        save.setOnClickListener(new OnClickListener() {
