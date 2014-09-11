@@ -1,6 +1,3 @@
-LifeSumAlejandroCordon
-======================
-
 LifeSum AlejandroCordon
 ======= ===============
 
