@@ -6,27 +6,21 @@ import test.lifesum.imagecache.ImageLoader;
 import test.lifesum.lifesumalejandrocordon.R;
 import test.lifesum.parcelableobjects.ParcelableFood;
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.database.DataSetObserver;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory.Options;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ImageAdapterListView_food_grid_saved extends BaseAdapter {
-    private Context mContext;
 
     private String TAG = getClass().getSimpleName();
 
-    private ArrayList<ParcelableFood> otros;
+    private ArrayList<ParcelableFood> foodlist;
 
-    private SQLiteDatabase database;
 
     private Activity actividad;
     private static LayoutInflater inflater=null;
@@ -35,12 +29,9 @@ public class ImageAdapterListView_food_grid_saved extends BaseAdapter {
     
     public ImageLoader imageLoader;
 
-    private Dialog mDialog;
-
 
     public ImageAdapterListView_food_grid_saved(Context c, Activity a, ArrayList<ParcelableFood> listaotros) {
     	//Log.d(this.getClass().getSimpleName(),"Creador ");
-    	mContext = c;
     	
     	options = new Options();
 		options.inSampleSize = 6;
@@ -49,7 +40,7 @@ public class ImageAdapterListView_food_grid_saved extends BaseAdapter {
 		
 		
 		
-		otros = listaotros;
+        foodlist = listaotros;
 //    	imageLoader=new ImageLoader(c.getApplicationContext());
     	
         inflater = (LayoutInflater)actividad.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -176,12 +167,12 @@ public class ImageAdapterListView_food_grid_saved extends BaseAdapter {
 
 
 	public int getCount() {
-		return Math.min(32, otros.size());
+		return Math.min(32, foodlist.size());
 //        return otros.size();
     }
 
-    public Object getItem(int position) {
-    	 return otros.get(position % otros.size());
+    public ParcelableFood getItem(int position) {
+    	 return foodlist.get(position % foodlist.size());
 //        return null;
     }
 
@@ -192,7 +183,7 @@ public class ImageAdapterListView_food_grid_saved extends BaseAdapter {
     
     public void removeItem(int position){
     	
-    	otros.remove(position);
+    	foodlist.remove(position);
     	notifyDataSetChanged();
     }
     
@@ -255,119 +246,70 @@ public class ImageAdapterListView_food_grid_saved extends BaseAdapter {
         TextView showmeasurement = (TextView) view.findViewById(R.id.TextViewshowmeasurement);
         TextView potassium = (TextView) view.findViewById(R.id.TextViewpotassium);
         
-        LinearLayout info = (LinearLayout) view.findViewById(R.id.TextViewInfo);
-        
-        
-        TextView Fecha = (TextView) view.findViewById(R.id.textViewFecha);
-
-
-		final RelativeLayout fondo = (RelativeLayout) view.findViewById(R.id.RelativeLayoutPublisher);
 		
-		
-    	if (otros == null) {
+    	if (foodlist == null) {
 			
-    		//Pintar lista vacia
-		      
     		category.setText("");
-//	  		sku.setText("");
-//	  		hidden.setText("");
-	  		
-	  		
-	  		//Log.w (this.getClass().getSimpleName()," NULL       --- ");
-            
-	  		
-	        
 	        
 		} else {
-			//Pintar annotations
-
-//			    	posicion = position;
-			    	
 			        	
-			        	if (otros.size() == 0){
+			        	if (foodlist.size() == 0){
 			        		      
 			        		category.setText(actividad.getResources().getString(R.string.no_elements));
-//			        		sku.setText("");
-//			        		hidden.setText("");
 			        		
 			        	} else {
 
-			                
-			                //Log.w (this.getClass().getSimpleName()," - getView() - "+position +" ---- " + annotations.get(position).SSID + " ------ " +annotations.get(position).toString());
-			                
-			                if ( otros.get(position)!=null && (!otros.get(position).toString().equals(""))) {
+			                if ( foodlist.get(position)!=null && (!foodlist.get(position).toString().equals(""))) {
 			                	
 			                	
-			                	if ((!otros.get(position).getTitle().equals(""))) {
-						    		//Log.w(this.getClass().getSimpleName()," SSID = "+annotations.get(position).SSID);
-//						    		title.setText(otros.get(position).getTitle());
+			                	if ((!foodlist.get(position).getTitle().equals(""))) {
 						    		
-						    				title								   .setText(""+otros.get(position).getTitle());
-							  				categoryid                             .setText(" categoryid       :  "+otros.get(position).getCategoryid());    
-							  		        fiber                                  .setText(" fiber            :  "+otros.get(position).getFiber());    
-							  		        headimage                              .setText(" headimage        :  "+otros.get(position).getHeadimage()     );    
-							  		        pcsingram                              .setText(" pcsingram        :  "+otros.get(position).getPcsingram()     );    
-//							  		        brand                                  .setText(" brand            :  "+otros.get(position).getBrand()     );
+						    				title								   .setText(""+foodlist.get(position).getTitle());
+							  				categoryid                             .setText(" categoryid       :  "+foodlist.get(position).getCategoryid());    
+							  		        fiber                                  .setText(" fiber            :  "+foodlist.get(position).getFiber());    
+							  		        headimage                              .setText(" headimage        :  "+foodlist.get(position).getHeadimage()     );    
+							  		        pcsingram                              .setText(" pcsingram        :  "+foodlist.get(position).getPcsingram()     );    
 							  		        
 							  		        brand.setVisibility(View.VISIBLE);
-							  		        if (otros.get(position).getBrand().toString().equals("")) {
+							  		        if (foodlist.get(position).getBrand().toString().equals("")) {
 							  		        	brand.setVisibility(View.GONE);
 							  		        }else{
 							  		        	brand.setVisibility(View.VISIBLE);
-							  		        	brand                                  .setText(" "+otros.get(position).getBrand()     );
+							  		        	brand                                  .setText(" "+foodlist.get(position).getBrand()     );
 							  		        }
 							  		        
-							  		        
-							  		        unsaturatedfat                         .setText(" unsaturatedfat   :  "+otros.get(position).getUnsaturatedfat()     );    
-							  		        fat                                    .setText(" fat              :  "+otros.get(position).getFat()     );    
-							  		        servingcategory                        .setText(" servingcategory  :  "+otros.get(position).getServingcategory()     );    
-							  		        typeofmeasurement                      .setText(" typeofmeasurement:  "+otros.get(position).getTypeofmeasurement()  );    
-							  		        protein                                .setText(" protein          :  "+otros.get(position).getProtein()     );    
-							  		        defaultserving                         .setText(" defaultserving   :  "+otros.get(position).getDefaultserving()     );    
-							  		        mlingram                               .setText(" mlingram         :  "+otros.get(position).getMlingram()     );    
-							  		        productid                              .setText(" productid        :  "+otros.get(position).getId()    );    
-							  		        saturatedfat                           .setText(" saturatedfat     :  "+otros.get(position).getSaturatedfat()    );    
-							  		        category                               .setText(" category         :  "+otros.get(position).getCategory()     ); 
-								  		    pcstext                                .setText(" pcstext          :  "+otros.get(position).getPcstext());          
-								  	        sodium                                 .setText(" sodium           :  "+otros.get(position).getSodium());               
-								  	        carbohydrates                          .setText(" carbohydrates    :  "+otros.get(position).getCarbohydrates()     );      
-								  	        showonlysametype                       .setText(" showonlysametype :  "+otros.get(position).getShowonlysametype()     );      
-//								  	        calories                               .setText(" calories         :  "+otros.get(position).getCalories()+" kcal"     );
-								  	        if (otros.get(position).getPcstext().toString().equals("") ) {
-								  	        	calories                               .setText(" "+otros.get(position).getCalories()+" kcal");	
+							  		        unsaturatedfat                         .setText(" unsaturatedfat   :  "+foodlist.get(position).getUnsaturatedfat()     );    
+							  		        fat                                    .setText(" fat              :  "+foodlist.get(position).getFat()     );    
+							  		        servingcategory                        .setText(" servingcategory  :  "+foodlist.get(position).getServingcategory()     );    
+							  		        typeofmeasurement                      .setText(" typeofmeasurement:  "+foodlist.get(position).getTypeofmeasurement()  );    
+							  		        protein                                .setText(" protein          :  "+foodlist.get(position).getProtein()     );    
+							  		        defaultserving                         .setText(" defaultserving   :  "+foodlist.get(position).getDefaultserving()     );    
+							  		        mlingram                               .setText(" mlingram         :  "+foodlist.get(position).getMlingram()     );    
+							  		        productid                              .setText(" productid        :  "+foodlist.get(position).getId()    );    
+							  		        saturatedfat                           .setText(" saturatedfat     :  "+foodlist.get(position).getSaturatedfat()    );    
+							  		        category                               .setText(" category         :  "+foodlist.get(position).getCategory()     ); 
+								  		    pcstext                                .setText(" pcstext          :  "+foodlist.get(position).getPcstext());          
+								  	        sodium                                 .setText(" sodium           :  "+foodlist.get(position).getSodium());               
+								  	        carbohydrates                          .setText(" carbohydrates    :  "+foodlist.get(position).getCarbohydrates()     );      
+								  	        showonlysametype                       .setText(" showonlysametype :  "+foodlist.get(position).getShowonlysametype()     );      
+//								  	        calories                               .setText(" calories         :  "+foodlist.get(position).getCalories()+" kcal"     );
+								  	        if (foodlist.get(position).getPcstext().toString().equals("") ) {
+								  	        	calories                               .setText(" "+foodlist.get(position).getCalories()+" kcal");	
 											} else {
-												calories                               .setText(" "+otros.get(position).getCalories()+" kcal each "+ otros.get(position).getPcstext() );
+												calories                               .setText(" "+foodlist.get(position).getCalories()+" kcal each "+ foodlist.get(position).getPcstext() );
 											}
 								  	        
-								  	        serving_version                        .setText(" serving_version  :  "+otros.get(position).getServing_version()     ); 
-								  	        sugar                                  .setText(" sugar            :  "+otros.get(position).getSugar()     );            
-								  	        measurementid                          .setText(" measurementid    :  "+otros.get(position).getMeasurementid()    );
-								  	        cholesterol                            .setText(" cholesterol      :  "+otros.get(position).getCholesterol()  ); 
-								  	        gramsperserving                        .setText(" gramsperserving  :  "+otros.get(position).getGramsperserving()    );        
-								  	        showmeasurement                        .setText(" showmeasurement  :  "+otros.get(position).getShowmeasurement()     ); 
-								  	        potassium                              .setText(" potassium        :  "+otros.get(position).getPotassium()     );       
-								  	        verified							   .setText(" verified        :  "+otros.get(position).getVerified()     );
+								  	        serving_version                        .setText(" serving_version  :  "+foodlist.get(position).getServing_version()     ); 
+								  	        sugar                                  .setText(" sugar            :  "+foodlist.get(position).getSugar()     );            
+								  	        measurementid                          .setText(" measurementid    :  "+foodlist.get(position).getMeasurementid()    );
+								  	        cholesterol                            .setText(" cholesterol      :  "+foodlist.get(position).getCholesterol()  ); 
+								  	        gramsperserving                        .setText(" gramsperserving  :  "+foodlist.get(position).getGramsperserving()    );        
+								  	        showmeasurement                        .setText(" showmeasurement  :  "+foodlist.get(position).getShowmeasurement()     ); 
+								  	        potassium                              .setText(" potassium        :  "+foodlist.get(position).getPotassium()     );       
+								  	        verified							   .setText(" verified        :  "+foodlist.get(position).getVerified()     );
 							  	        
-							  	        
-						    		
-//                                    Fecha.setText(otros.get(position).getExpDate());
-//                                    codigo.setText(otros.get(position).getPromoCode());
-
-								  	        
-//								  	info.setOnClickListener(new View.OnClickListener() {
-//                                        @Override
-//                                        public void onClick(View view) {
-//
-//                                        	
-//
-//
-//                                        }
-//                                    });
-								  	      
-
 								} 
 						    	
-				                
 			                }
 			                
 			         		

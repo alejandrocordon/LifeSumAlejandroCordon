@@ -1,7 +1,5 @@
 package test.lifesum.fragments;
 
-import java.io.BufferedReader;
-import java.net.HttpURLConnection;
 import java.util.ArrayList;
 
 import test.lifesum.customimagelistadapter.ImageAdapterListView_food_grid_saved;
@@ -45,12 +43,7 @@ public class SavedFoodSearchFragment extends Fragment {
 		@Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	      Bundle savedInstanceState) {
-	      // Defines the xml file for the fragment
 	      View view = inflater.inflate(R.layout.fragment_saved_food_search, container, false);
-	      // Setup handles to view objects here
-	      // etFoo = (EditText) v.findViewById(R.id.etFoo);
-	      
-	      
 	      
 	      searchText = (EditText) view.findViewById(R.id.editTextSearch);
 			 searchText.setOnClickListener(new OnClickListener() {
@@ -70,7 +63,6 @@ public class SavedFoodSearchFragment extends Fragment {
 			 imm = (InputMethodManager)getActivity().getSystemService(
 			       Context.INPUT_METHOD_SERVICE);
 
-//		        mShortAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime);
 		        mShortAnimationDuration = getResources().getInteger(android.R.integer.config_longAnimTime);
 		        
 		        
@@ -80,19 +72,13 @@ public class SavedFoodSearchFragment extends Fragment {
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					
 					 imm.hideSoftInputFromWindow(searchText.getWindowToken(), 0);
-					 
-					 
-					new SavedGetFoodTask(searchText.getText().toString()).execute();
+					 new SavedGetFoodTask(searchText.getText().toString()).execute();
 				}
 			});
 					
 					
 			llsearch = (LinearLayout) view.findViewById(R.id.LinearLayoutSearch);
-//			llsearch.setVisibility(View.VISIBLE);
-			
-//			grid = (GridView) rootView.findViewById(R.id.gridView);
 			grid = (GridView) view.findViewById(R.id.gridView);
 			grid.setVisibility(View.VISIBLE);
 			
@@ -105,7 +91,6 @@ public class SavedFoodSearchFragment extends Fragment {
 	 
     public static SavedFoodSearchFragment newInstance(int position) {
     	SavedFoodSearchFragment fragment = new SavedFoodSearchFragment();
-        // do some initial setup if needed, for example Listener etc
         return fragment;
     }
     
@@ -120,10 +105,6 @@ public class SavedFoodSearchFragment extends Fragment {
 	public class SavedGetFoodTask extends AsyncTask<Void, Void, ArrayList<ParcelableFood>> {
 		
 		
-	     private String queryString;
-	        
-		private BufferedReader bufferedReader = null;
-        private HttpURLConnection con = null;
 		private ArrayList<ParcelableFood> productList = null;
     
 		
@@ -132,8 +113,6 @@ public class SavedFoodSearchFragment extends Fragment {
 		
 		public SavedGetFoodTask(String QueryString) {
 			super();
-			
-			this.queryString = QueryString;
 			
 		}
 
@@ -144,10 +123,6 @@ public class SavedFoodSearchFragment extends Fragment {
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			
-
-		    
-		    
-		    
 			super.onPreExecute();
 		}
 
@@ -155,28 +130,18 @@ public class SavedFoodSearchFragment extends Fragment {
 		protected ArrayList<ParcelableFood> doInBackground(Void... params) {
 			// TODO: attempt authentication against a network service.
 
-			//String resultado = "";
-
-
 			//	Find in database
 			MyDatabaseHelper dbHelper = null;
 				try {
 					
 					dbHelper = new MyDatabaseHelper(getActivity().getApplicationContext());  
-				    SQLiteDatabase database = dbHelper.getWritableDatabase();  
-				    
-				} catch (Exception e) {
-					// TODO: handle exception
-				}
-				
-				try {
 					productList = dbHelper.getAllFoods();
+					return productList;
 				} catch (Exception e) {
 					// TODO: handle exception
+					return null;
 				}
-				
             	
-			return productList;
             
 		}
 
@@ -187,77 +152,42 @@ public class SavedFoodSearchFragment extends Fragment {
 
                 if (foods.size()>0){
 
-
                     final ImageAdapterListView_food_grid_saved adapterscan_grid = new ImageAdapterListView_food_grid_saved(getActivity().getApplicationContext(),getActivity(),foods);
 
-//        		    View viewer = mSectionsPagerAdapter.getItem(1).getView();
-
 	        		    grid.setAdapter(adapterscan_grid);
-//	        		    adapter.notifyDataSetChanged().
-
-//	        		    grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//	
-//	                      @Override
-//	                      public void onItemClick(AdapterView<?> arg0, View arg1,
-//	                                              int arg2, long arg3) {
-//	                          // TODO Auto-generated method stub
-//
-////	                    	  grid.getAdapter().getItem(arg2);
-//	                    	  arg1.setVisibility(View.GONE);
-////	                    	  grid.removeViewAt(arg2);
-//	
-//	                      }
-//	
-//	                  });
-                    
 	        		    grid.setOnItemClickListener(new OnItemClickListener() {
 
 							@Override
 							public void onItemClick(AdapterView<?> arg0,
 									View arg1, int arg2, long arg3) {
 								// TODO Auto-generated method stub
-//								arg1.setVisibility(View.GONE);
 								
-////								arg0.removeViewAt(arg2);
-//								adapterscan_grid.not
-//								grid.removeViewAt(arg2);
-//								arg0.notifyAll();
-								
-								adapterscan_grid.removeItem(arg2);
-//								arg1.setVisibility(View.GONE);
-								
+								ParcelableFood aux = adapterscan_grid.getItem(arg2);
 								
 								MyDatabaseHelper dbHelper = new MyDatabaseHelper(getActivity().getApplicationContext());  
 							    SQLiteDatabase database = dbHelper.getWritableDatabase();  
-							    dbHelper.deleteFood(foods.get(arg2));
+							    dbHelper.deleteFood(aux);
+							    
+								adapterscan_grid.removeItem(arg2);
 							    
 							}
 						});
-                    
 	                  
-//	                  grid.setVisibility(View.VISIBLE);
-//	                  llsearch.setVisibility(View.GONE);
 	                  mContentLoaded = !mContentLoaded;
 	                  showContentOrLoadingIndicator(mContentLoaded);
-	                  
-	                  
 	                  
                 }else{
 
                     Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.no_elements), Toast.LENGTH_LONG).show();
                     mContentLoaded = !mContentLoaded;
 	                showContentOrLoadingIndicator(mContentLoaded);
+	                
                 }
 			}
 			
 		}
 		
 		
-		
-		
-		/* (non-Javadoc)
-		 * @see android.os.AsyncTask#onCancelled(java.lang.Object)
-		 */
 		@Override
 		protected void onCancelled(ArrayList<ParcelableFood> food) {
 			// TODO Auto-generated method stub

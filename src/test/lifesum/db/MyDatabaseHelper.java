@@ -1,8 +1,6 @@
 package test.lifesum.db;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import test.lifesum.parcelableobjects.ParcelableFood;
 import android.content.ContentValues;
 import android.content.Context;
@@ -59,103 +57,120 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 		
 		
 	// Adding new contact
-	public void addFood(ParcelableFood food) {
+	public int addFood(ParcelableFood food) {
+		
+		ParcelableFood aux = null;
+		aux = getFood("Id",food.getId());
+		if (aux == null) {
+			
+			SQLiteDatabase db = this.getWritableDatabase();
+			
+			ContentValues values = new ContentValues();
 
-		SQLiteDatabase db = this.getWritableDatabase();
+			values.put("Id", food.getId());
+			values.put("Title", food.getTitle());
+			values.put("Categoryid", food.getCategoryid());
+			values.put("Fiber", food.getFiber());
+			values.put("Headimage", food.getHeadimage());
+			values.put("Pcsingram", food.getPcsingram());
+			values.put("Brand", food.getBrand());
+			values.put("Unsaturatedfat", food.getUnsaturatedfat());
+			values.put("Fat", food.getFat());
+			values.put("Servingcategory", food.getServingcategory());
+			values.put("Typeofmeasurement", food.getTypeofmeasurement());
+			values.put("Protein", food.getProtein());
+			values.put("Defaultserving", food.getDefaultserving());
+			values.put("Mlingram", food.getMlingram());
+			values.put("Saturatedfat", food.getSaturatedfat());
+			values.put("Category", food.getCategory());
+			values.put("Verified", food.getVerified());
+			values.put("Title", food.getTitle());
+			values.put("Pcstext", food.getPcstext());
+			values.put("Sodium", food.getSodium());
+			values.put("Carbohydrates", food.getCarbohydrates());
+			values.put("Showonlysametype", food.getShowonlysametype());
+			values.put("Calories", food.getCalories());
+			values.put("Serving_version", food.getServing_version());
+			values.put("Sugar", food.getSugar());
+			values.put("Measurementid", food.getMeasurementid());
+			values.put("Cholesterol", food.getCholesterol());
+			values.put("Gramsperserving", food.getGramsperserving());
+			values.put("Showmeasurement", food.getShowmeasurement());
+			values.put("Potassium", food.getPotassium());
 
-		ContentValues values = new ContentValues();
-
-		values.put("Id", food.getId());
-		values.put("Title", food.getTitle());
-		values.put("Categoryid", food.getCategoryid());
-		values.put("Fiber", food.getFiber());
-		values.put("Headimage", food.getHeadimage());
-		values.put("Pcsingram", food.getPcsingram());
-		values.put("Brand", food.getBrand());
-		values.put("Unsaturatedfat", food.getUnsaturatedfat());
-		values.put("Fat", food.getFat());
-		values.put("Servingcategory", food.getServingcategory());
-		values.put("Typeofmeasurement", food.getTypeofmeasurement());
-		values.put("Protein", food.getProtein());
-		values.put("Defaultserving", food.getDefaultserving());
-		values.put("Mlingram", food.getMlingram());
-		values.put("Saturatedfat", food.getSaturatedfat());
-		values.put("Category", food.getCategory());
-		values.put("Verified", food.getVerified());
-		values.put("Title", food.getTitle());
-		values.put("Pcstext", food.getPcstext());
-		values.put("Sodium", food.getSodium());
-		values.put("Carbohydrates", food.getCarbohydrates());
-		values.put("Showonlysametype", food.getShowonlysametype());
-		values.put("Calories", food.getCalories());
-		values.put("Serving_version", food.getServing_version());
-		values.put("Sugar", food.getSugar());
-		values.put("Measurementid", food.getMeasurementid());
-		values.put("Cholesterol", food.getCholesterol());
-		values.put("Gramsperserving", food.getGramsperserving());
-		values.put("Showmeasurement", food.getShowmeasurement());
-		values.put("Potassium", food.getPotassium());
-
-		// Inserting Row
-		db.insert("Foods", null, values);
-		db.close(); // Closing database connection
+			// Inserting Row
+			db.insert("Foods", null, values);
+			db.close(); // Closing database connection
+			return 0;
+		}else {
+			return -1;
+		}
+		
+		
 	}
 
 	// Getting single contact
 	public ParcelableFood getFood(String key, String value) {
+		
 		SQLiteDatabase db = this.getReadableDatabase();
 
 		Cursor cursor = db.query("Foods", new String[] { "Id", "Title",
 				"Categoryid", "Fiber", "Headimage", "Pcsingram", "Brand",
 				"Unsaturatedfat", "Fat", "Servingcategory",
 				"Typeofmeasurement", "Protein", "Defaultserving", "Mlingram",
-				"Saturatedfat", "Category", "Verified", "Title", "Pcstext",
+				"Saturatedfat", "Category", "Verified", "Pcstext",
 				"Sodium", "Carbohydrates", "Showonlysametype", "Calories",
 				"Serving_version", "Sugar", "Measurementid", "Cholesterol",
 				"Gramsperserving", "Showmeasurement", "Potassium", }, key
 				+ "=?", new String[] { String.valueOf(value) }, null, null,
 				null, null);
 
-		if (cursor != null)
+		if (cursor != null){
 			cursor.moveToFirst();
 
-		ParcelableFood food = new ParcelableFood();
+			if(cursor.getCount()>0){
+				ParcelableFood food = new ParcelableFood();
 
-		food.setId(cursor.getString(0));
-		food.setTitle(cursor.getString(1));
-		food.setCategoryid(cursor.getString(2));
-		food.setFiber(cursor.getString(3));
-		food.setHeadimage(cursor.getString(4));
-		food.setPcsingram(cursor.getString(5));
-		food.setBrand(cursor.getString(6));
-		food.setUnsaturatedfat(cursor.getString(7));
-		food.setFat(cursor.getString(8));
-		food.setServingcategory(cursor.getString(9));
-		food.setTypeofmeasurement(cursor.getString(0));
-		food.setProtein(cursor.getString(11));
-		food.setDefaultserving(cursor.getString(12));
-		food.setMlingram(cursor.getString(13));
-		food.setSaturatedfat(cursor.getString(14));
-		food.setCategory(cursor.getString(15));
-		food.setVerified(cursor.getString(16));
-		food.setTitle(cursor.getString(17));
-		food.setPcstext(cursor.getString(18));
-		food.setSodium(cursor.getString(19));
-		food.setCarbohydrates(cursor.getString(20));
-		food.setShowonlysametype(cursor.getString(21));
-		food.setCalories(cursor.getString(22));
-		food.setServing_version(cursor.getString(23));
-		food.setSugar(cursor.getString(24));
-		food.setMeasurementid(cursor.getString(25));
-		food.setCholesterol(cursor.getString(26));
-		food.setGramsperserving(cursor.getString(27));
-		food.setShowmeasurement(cursor.getString(28));
-		food.setPotassium(cursor.getString(29));
+				food.setId(cursor.getString(0));
+				food.setTitle(cursor.getString(1));
+				food.setCategoryid(cursor.getString(2));
+				food.setFiber(cursor.getString(3));
+				food.setHeadimage(cursor.getString(4));
+				food.setPcsingram(cursor.getString(5));
+				food.setBrand(cursor.getString(6));
+				food.setUnsaturatedfat(cursor.getString(7));
+				food.setFat(cursor.getString(8));
+				food.setServingcategory(cursor.getString(9));
+				food.setTypeofmeasurement(cursor.getString(0));
+				food.setProtein(cursor.getString(11));
+				food.setDefaultserving(cursor.getString(12));
+				food.setMlingram(cursor.getString(13));
+				food.setSaturatedfat(cursor.getString(14));
+				food.setCategory(cursor.getString(15));
+				food.setVerified(cursor.getString(16));
+				food.setPcstext(cursor.getString(17));
+				food.setSodium(cursor.getString(18));
+				food.setCarbohydrates(cursor.getString(19));
+				food.setShowonlysametype(cursor.getString(2));
+				food.setCalories(cursor.getString(21));
+				food.setServing_version(cursor.getString(22));
+				food.setSugar(cursor.getString(23));
+				food.setMeasurementid(cursor.getString(24));
+				food.setCholesterol(cursor.getString(25));
+				food.setGramsperserving(cursor.getString(26));
+				food.setShowmeasurement(cursor.getString(27));
+				food.setPotassium(cursor.getString(28));
 
-		// Integer.parseInt(cursor.getString(0)),
-		// cursor.getString(1), cursor.getString(2));
-		// return contact
-		return food;
+				return food;
+				}
+				else{
+					return null;
+				}
+			}else{
+				return null;
+			}
+			
+		
 	}
 
 	// Getting All Contacts

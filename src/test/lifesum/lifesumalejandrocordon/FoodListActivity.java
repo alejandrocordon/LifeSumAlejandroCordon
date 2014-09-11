@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -40,7 +39,6 @@ public class FoodListActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_food_list);
 
-		
 		
 		
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
@@ -119,7 +117,7 @@ public class FoodListActivity extends Activity implements
 			// Only show items in the action bar relevant to this screen
 			// if the drawer is not showing. Otherwise, let the drawer
 			// decide what to show in the action bar.
-//			getMenuInflater().inflate(R.menu.food_list, menu);
+			getMenuInflater().inflate(R.menu.food_list, menu);
 			restoreActionBar();
 			return true;
 		}
@@ -132,9 +130,9 @@ public class FoodListActivity extends Activity implements
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
+//		if (id == R.id.action_settings) {
+//			return true;
+//		}
 		return super.onOptionsItemSelected(item);
 	}
 

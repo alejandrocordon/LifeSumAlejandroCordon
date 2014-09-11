@@ -5,14 +5,12 @@ import java.util.ArrayList;
 import test.lifesum.db.MyDatabaseHelper;
 import test.lifesum.imagecache.ImageLoader;
 import test.lifesum.lifesumalejandrocordon.R;
-import test.lifesum.lifesumalejandrocordon.R.drawable;
-import test.lifesum.lifesumalejandrocordon.R.id;
-import test.lifesum.lifesumalejandrocordon.R.layout;
 import test.lifesum.parcelableobjects.ParcelableFood;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.database.DataSetObserver;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory.Options;
 import android.view.LayoutInflater;
@@ -24,6 +22,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 import android.widget.TableLayout.LayoutParams;
 import android.widget.TextView;
 
@@ -519,10 +518,21 @@ public class ImageAdapterListView_food_grid extends BaseAdapter {
 	                                  				
 	                                  				
 	                                  				MyDatabaseHelper dbHelper = new MyDatabaseHelper(actividad.getApplicationContext());  
-	                                  			    database = dbHelper.getWritableDatabase();  
+	                                  			    database = dbHelper.getWritableDatabase();
+	                                  			    
 	                                  				
 //	                                  			    dbHelper.onCreate(database);
-	                                  			    dbHelper.addFood(otros.get(position));
+	                                  			    try {
+	                                  			    	int result = dbHelper.addFood(otros.get(position));
+	                                  			    	if (result == -1) {
+//															Toast.makeText(actividad, "allready saved", Toast.LENGTH_LONG).show();
+														}
+													} catch (SQLiteConstraintException e) {
+														// TODO: handle exception
+														//Is allready added
+														
+													}
+	                                  			    
 	                                  			   
 	                                  			   
 	                                  				if (save.getDrawable().equals(actividad.getResources().getDrawable(R.drawable.ic_star))) {

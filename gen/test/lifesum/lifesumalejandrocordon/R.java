@@ -100,7 +100,6 @@ public final class R {
         public static final int TextViewtypeofmeasurement=0x7f090025;
         public static final int TextViewverified=0x7f090010;
         public static final int action_example=0x7f090043;
-        public static final int action_settings=0x7f090044;
         public static final int buttonGo=0x7f090038;
         public static final int buttonOk=0x7f09000b;
         public static final int container=0x7f090001;
